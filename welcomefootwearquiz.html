@@ -1,0 +1,2011 @@
+<!-- This project protected under copyright@2022 , Developed by Balaji Murumbe, Development time : 2 months, please don't violet rights. We will take serious action if you copied, trying to do illegal activities. you can contact developer for adding extra features, Permission denied for duplicating, modifying this code.You are under observation.if you try to copy this code the case is registered against you in a minute. please keep note of this , be safe
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<meta name="theme-color" content="#DDA745" />	
+					  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script>
+				<title>Welcome Footwear Killari</title>
+		
+				<style>
+								body{
+												padding:0;
+												margin:0;
+											background-image:url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='100' height='100' patternTransform='scale(3) rotate(125)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(340,100%,60%,1)'/><path d='M92.4 11.82a1.2 1.2 0 011.11 1.74 6.47 6.47 0 0011.49 5.9 1.2 1.2 0 011.6-.52c.28.14.49.39.59.7.08.27.05.6-.1.88a8.78 8.78 0 01-5.14 4.36 8.79 8.79 0 01-11.1-5.7 8.79 8.79 0 01.54-6.72 1.17 1.17 0 011-.64zm-100 0a1.2 1.2 0 011.11 1.74 6.47 6.47 0 002.8 8.68 6.47 6.47 0 008.68-2.78 1.2 1.2 0 011.6-.52c.3.14.5.39.6.7.08.27.05.6-.1.88a8.77 8.77 0 01-5.14 4.36 8.8 8.8 0 01-11.1-5.7 8.79 8.79 0 01.54-6.72 1.17 1.17 0 011-.64zm61.5 15.26c1.84.06 3.58.76 4.98 1.99a1.08 1.08 0 01.34 1.01 1.09 1.09 0 01-.98.87c-.29.02-.56-.07-.78-.27a5.84 5.84 0 00-7.72 8.74 1.04 1.04 0 01.1 1.5c-.2.22-.45.35-.74.37-.28.02-.56-.08-.77-.27a7.92 7.92 0 01-2.68-5.48 7.92 7.92 0 017.46-8.45c.26-.02.53-.02.79-.01zm-7.18 23.34a9.42 9.42 0 11-1.32 18.66 9.4 9.4 0 011.32-18.66zm.06 1.78a7.62 7.62 0 10.47 15.24 7.62 7.62 0 00-.47-15.24zm-21.4 16.73l4.83 9.23-13.73 7.17-4.82-9.22z'  stroke-width='1' stroke='none' fill='hsla(330,100%,80%,1)'/><path d='M107.9 52.52c1.6 0 3-.98 3.78-2.61.54-1.13 1.47-1.8 2.5-1.8 1.04 0 1.98.67 2.51 1.8.78 1.64 2.2 2.6 3.8 2.6 1.59 0 3-.97 3.78-2.6.53-1.13 1.47-1.8 2.5-1.8.86 0 1.65.46 2.2 1.27.2.29.58.4.89.25h.02a.7.7 0 00.29-1.02 4.08 4.08 0 00-3.4-1.92c-1.6 0-3 .98-3.78 2.61-.54 1.12-1.48 1.8-2.5 1.8-1.04 0-1.98-.68-2.51-1.8-.78-1.64-2.2-2.6-3.8-2.6-1.59 0-3 .97-3.78 2.6-.53 1.12-1.47 1.8-2.5 1.8-1.04 0-1.97-.68-2.5-1.8-.78-1.64-2.2-2.6-3.8-2.6-1.58 0-3 .95-3.77 2.58a.74.74 0 00.25.94c.37.23.85.08 1.03-.3.53-1.12 1.47-1.8 2.5-1.8 1.04 0 1.97.68 2.5 1.8.77 1.63 2.2 2.6 3.79 2.6zm-.04-4.91c1.6 0 3.01-.98 3.79-2.61.53-1.13 1.47-1.8 2.5-1.8 1.04 0 1.97.67 2.5 1.8.78 1.64 2.2 2.6 3.8 2.6 1.6 0 3-.97 3.78-2.6.54-1.13 1.47-1.8 2.5-1.8 1.04 0 1.98.67 2.51 1.8a.72.72 0 001.3-.62c-.78-1.64-2.2-2.6-3.8-2.6-1.59 0-3 .97-3.78 2.6-.54 1.13-1.47 1.8-2.5 1.8-1.04 0-1.98-.67-2.51-1.8-.78-1.64-2.2-2.6-3.79-2.6-1.6 0-3.01.97-3.79 2.6-.53 1.13-1.47 1.8-2.5 1.8s-1.97-.67-2.5-1.8c-.78-1.64-2.2-2.6-3.8-2.6-1.59 0-3 .97-3.78 2.6a.72.72 0 001.3.62c.53-1.13 1.46-1.8 2.5-1.8 1.03 0 1.97.67 2.5 1.8.76 1.63 2.18 2.6 3.77 2.6zm-65-66.88L25.77-6.92 8.72 5.44l19.23 8.6 19.24 8.61L45.02 1.7zm0 100L25.77 93.08 8.72 105.44l19.23 8.6 19.24 8.61-2.17-20.96zM7.9 52.52c1.6 0 3-.98 3.78-2.61.54-1.13 1.47-1.8 2.5-1.8 1.04 0 1.98.67 2.51 1.8.78 1.64 2.2 2.6 3.8 2.6 1.59 0 3-.97 3.78-2.6.53-1.13 1.47-1.8 2.5-1.8.86 0 1.65.46 2.2 1.27.2.29.57.4.89.25h.02a.7.7 0 00.29-1.02 4.08 4.08 0 00-3.4-1.92c-1.6 0-3.01.98-3.78 2.61-.54 1.12-1.48 1.8-2.5 1.8-1.04 0-1.98-.68-2.51-1.8-.78-1.64-2.2-2.6-3.8-2.6-1.59 0-3 .97-3.78 2.6-.53 1.12-1.47 1.8-2.5 1.8-1.04 0-1.97-.68-2.5-1.8-.78-1.64-2.2-2.6-3.8-2.6-1.58 0-3 .95-3.77 2.58a.74.74 0 00.25.94c.37.23.85.08 1.03-.3.53-1.12 1.47-1.8 2.5-1.8 1.04 0 1.97.68 2.5 1.8.77 1.63 2.19 2.6 3.79 2.6zm-.04-4.91c1.6 0 3.01-.98 3.79-2.61.53-1.13 1.47-1.8 2.5-1.8 1.04 0 1.97.67 2.5 1.8.78 1.64 2.2 2.6 3.8 2.6 1.59 0 3-.97 3.78-2.6.54-1.13 1.47-1.8 2.5-1.8 1.04 0 1.98.67 2.51 1.8a.72.72 0 001.3-.62c-.78-1.64-2.2-2.6-3.8-2.6-1.59 0-3 .97-3.78 2.6-.54 1.13-1.47 1.8-2.5 1.8-1.04 0-1.98-.67-2.51-1.8-.78-1.64-2.2-2.6-3.79-2.6-1.6 0-3.01.97-3.79 2.6-.53 1.13-1.47 1.8-2.5 1.8s-1.97-.67-2.5-1.8c-.78-1.64-2.2-2.6-3.8-2.6-1.59 0-3 .97-3.78 2.6a.72.72 0 001.3.62c.53-1.13 1.46-1.8 2.5-1.8 1.03 0 1.97.67 2.5 1.8.76 1.63 2.17 2.6 3.77 2.6z'  stroke-width='1' stroke='none' fill='hsla(342,100%,66.7%,1)'/><path d='M53.04 81.06a2 2 0 003.95-.66 2 2 0 00-3.95.66zM14.89 63.92a3.28 3.28 0 004.63-4.63 3.28 3.28 0 00-4.63 0 3.26 3.26 0 000 4.63zm52.8-52.54a5.99 5.99 0 0011.8-1.97 5.99 5.99 0 00-11.8 1.97z'  stroke-width='1' stroke='none' fill='hsla(338,100%,73.3%,1)'/><path d='M80.37 64.6a13.58 13.58 0 11-1.14 27.15 13.58 13.58 0 011.14-27.14zM26.83 26.14l-1.67 4.77-1.68 4.78-3.3-3.84L16.9 28l4.97-.93zm54.32 15.72l1.76 4.73 1.78 4.74-4.99-.83-4.99-.84 3.22-3.9z'  stroke-width='1' stroke='none' fill='hsla(315,100%,86.7%,1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+									 background-position:center;
+									 background-repeat:no-repeat;
+									 background-size:cover;
+									 background-color:#F9F1F0;			
+									 
+								}
+								
+								*{
+												box-sizing:border-box;
+								}
+								#seldiv{
+								    height:100vh;
+								    width:100%;
+												display:flex;
+												flex-wrap:wrap;
+												justify-content: center;
+												align-items:center;
+												overflow:auto;
+												background:none;
+												
+												 
+								}
+								
+								.gradani {
+    background:rgba(227, 217, 190,0.3);
+    }
+								.newdivbox{
+									 width:100%;
+									 height:100vh;
+									 display:flex;
+									 flex-direction:column;
+									 justify-content:center;
+									 align-items:center;
+									 padding:0;
+									 margin:0;
+									 background:rgba(255,255,255,1);
+									 color:black;
+									 transform-style: preserve-2d;
+									 transform-origin:center;
+								}
+							 .newdiv1{
+								    width:300px;
+								    height:150px;
+												display:flex;
+												flex-direction:column;
+											 border-radius:12px;
+									   justify-content:center;
+									   align-items:center;
+								    padding:20px;
+								    overflow:auto;
+								    margin:4px;
+								    font-size:20px;
+								    color:black;
+								   
+								}
+								
+								
+								.newdiv2{
+								    display:flex;
+								    flex-direction:column;
+								    justify-content:center;
+								    align-items:center;
+								    width:100%;
+												background:rgba(255,255,255,1);
+												padding:8px;
+												
+												
+								}
+								
+								.newdiv2 p{
+								    
+								    height:75px;
+								    width:300px;
+											 display:flex;
+											 justify-content:center;
+											 align-items:center;
+												background:#FADCD9;
+												border-radius:20px;
+									   margin:4px 0px 0px 0px;
+									   padding:8px;
+									   transition:0.2s ease-out;
+									  
+								}
+								
+							
+								
+								.newdiv2 p:active{
+												
+								    transform:scale(0.8);
+											
+								}
+								.newdiv2 label{
+							   display:flex;
+							   justify-content:center;
+							   align-items:center;
+										height:65px;		
+										width:300px;
+										font-size:16px;
+								  color:black;
+								  font-weight:bold;
+									
+										
+												
+								}
+								
+								
+								.newdiv2 input{
+								    appearance:none;
+												height:20px;
+												width:20px;
+								}
+								
+						  
+						  .notybox{
+						  			height:100px;
+						  			width:300px;
+						  			display:flex;
+						  			flex-direction:row;
+						  			justify-content:center;
+						  			align-items:center;
+						  			margin-top:0;
+						  				
+						  }
+								
+								#q1{
+												height:55px;
+												width:200px;
+												padding:8px;
+												border:solid 1px dodgerblue;
+								}
+								.selectbox{
+												height:70px;
+												width:200px;
+												
+												outline:none;
+												background:#ECF87F;
+										
+												font-size:18px;
+												border:none;
+												margin:8px;
+												padding:8px;
+												border-radius:50px;
+												border:solid 1px purple;
+												box-shadow:12px 12px 2px silver;
+												
+								}
+								@keyframes amit{
+												0%{opacity:0;}
+												100%{opacity:1;}
+								}
+								#track{
+												display:flex;
+												flex-direction:row;
+												overflow:auto;
+								}
+								#track p{
+												height:10px;
+												width:10px;
+												border-radius:50%;
+												background:black;
+								}
+								
+								#pgr1box{
+							 
+								height:100vh;
+								width:100%;
+								overflow:auto;	
+								padding:4px;
+									
+								}
+								
+								#pgr1{
+								  
+								  width:100%;
+								  display:flex;
+							   flex-direction: column;
+								  justify-content:center;
+								  align-items:center;
+								  padding:8px;
+								  margin-top:20px;
+								  margin-bottom:100vh;
+								  border-radius:50px;
+								}
+								#pgr2{
+								    
+												display:none;
+												
+										  }
+								#pgr3{
+												display:none;
+												height:100vh;
+												width:100%;
+												borde-radius:4px;
+												overflow: auto;
+												padding:4px;
+											 
+								}
+								
+								#inpbox{
+								
+							
+								padding:8px;
+								display:flex;
+								flex-direction:column;
+								justify-content: center;
+								align-items:center;
+		      background:none;
+							 
+							 
+											
+								}
+								#inputmode{
+								    
+								    border:none;
+								    outline:none;
+								    background:cyan;
+								    border-radius:50px;
+								    padding:8px;
+								    margin:8px;
+								}
+								
+								#qfname{
+											 width:180px;
+												height:65px;										
+												border:none;
+												background:cyan;
+												margin:4px;
+												padding:8px;
+												outline:none;
+												border-radius:50px;
+												
+								}
+								
+				#inputslab{
+				    padding:8px;
+				    margin-bottom:20px;
+				    border:solid 1px cyan;
+				    border-radius:50px;
+				    background:rgba(255,255,255,1);
+				 
+				}
+								.butnext{
+		          width:80px;
+		          height:65px;
+		         background: linear-gradient(to bottom left,blue,#DDA745);
+		         color:cyan;
+											 border-radius:50px;
+												border: none;
+												outline:none;
+												margin-top:10px;
+												font-weight:bold;
+												font-size:18px;
+												animation:zola 1s 0.5s linear infinite alternate;
+												box-shadow:0px 3px 30px grey;
+												
+												
+								}
+								.butnext:active{
+												border:solid 8px cyan;
+								}
+								.showfeed{
+								    height:150px;
+								    width:200px;
+								    display:flex;
+								    flex-direction:column;
+								    justify-content:center;
+								    align-items:center;
+								    animation:bani 1s ease infinite;
+								    padding:8px;
+								    background:none;
+								    border-left:solid 2px silver;
+								    border-right:solid 2px silver;
+								}
+							 #rsalute{
+							     font-size:14px;
+								    background:green;
+								    padding:8px;
+								    transform:skew(8deg) rotateY(8deg);
+								    
+							 }
+								  
+								#showb{
+								    font-size:14px;
+								    background:dodgerblue;
+								    padding:8px;
+								    transform:skew(-8deg) rotateY(8deg);
+								}
+							
+								#pgr1card{
+								    
+												display:flex;
+												flex-direction:column;
+												justify-content:center;
+												align-items:center;
+												border-radius:4px;
+												padding:0px 8px 20px 8px;
+												background:none;
+												color:#F9CCD
+												margin:0;
+																								
+								}
+								.fletters{
+												font-family:cursive;
+												font-size:80px;
+												color:blue;
+												font-weight:bold;
+												animation:hhha 0.5s ease infinite;
+								}
+								
+								
+								.loct{
+												color:black;
+												font-weight:bold;
+											 width:200px;	background:rgba(255,255,255,0.6);
+												padding:8px;
+												border-radius:4px;
+											
+								}
+								#pgr1head{
+								    
+								    display:flex;
+								    flex-direction:column;
+								    justify-content:center;
+								    align-items:center;
+								    padding:12px;
+								    background:none;
+								    font-size:20px;
+											 font-weight:bold;
+											 color:white;
+											 margin-top:20px;
+											 
+											 
+								}
+								#rnamecard{
+								    display:flex;
+								    flex-direction:column;
+								    justify-content:center;
+								    align-items:center;
+								    animation:sumo 1.5s ease-in alternate infinite;
+								    color:black;		
+								    font-weight:bolder;						    background:none;
+								    padding:12px;
+								    border-radius:8px;
+								    
+								}
+								
+								@keyframes sumo{
+								    0%{
+								       transform: rotate(-5deg);
+								      
+								    }
+								    100%{
+								       transform: rotate(5deg);
+								       
+								       
+								    }
+								}
+								#pgr1headmid{
+								  display:flex;
+								  flex-wrap:wrap;
+								  justify-content:center;
+								  align-items:left;
+								  
+								}
+								#pgr1headmid p {
+								   
+								    display:flex;
+								    justify-content:center;
+								    align-items:center;
+								    height:150px;
+								    width:250px;
+												background:#FADCD9;
+												border-radius:4px;
+												padding:20px;
+												margin:8px;
+												color:;
+										
+												
+								}
+								#pgr1headmid p:hover{
+												background:#F9F1F0;
+												
+								}
+								#footlinks{
+								    display:flex;
+								    flex-wrap:wrap;
+								    justify-content:center;
+								    align-items:center;
+												padding:12px;
+												
+												color:black;
+								}
+								#qc{
+								    width:300px;
+												padding:8px;
+												border-radius:4px;
+											
+												color:black;
+												font-weight:bold;
+												background:rgba(255,255,255,0.5);
+												animation:zola 1s 0.5s linear infinite alternate;
+								}
+						
+								.noty{
+								
+												height:50px;
+												width:200px;
+												display:flex;
+												justify-content:center;
+												align-items:center;
+												overflow:auto;
+												padding:4px;
+												color:black;
+												background:#FADCD9;
+												border-radius:50px;
+												margin:2px;
+										
+															}
+																		
+								#pgr2head{
+
+											display:flex;
+											justify-content:space-around;
+											align-items: center;
+											font-weight:bold;
+												
+												
+								}
+								#sqnum{
+												display:flex;
+												justify-content:center;
+												align-items:center;
+												height:50px;
+												width:100px;
+												color:black;
+												font-weight:bold;
+												border-radius:50px;
+												padding:8px;
+												margin:2px;
+												background:#FADCD9;
+											
+										
+								}
+								#pgr3card{
+								   
+								    
+								    width:100%;
+								    background:linear-gradient(rgba(249, 241, 240,1),rgba(249, 241, 240,1),rgba(249, 241, 240,1),rgba(249, 241, 240,1));
+								    display:flex;
+								    flex-direction:column;
+								    justify-content: center;
+								    align-items:center;
+							     padding:12px;
+											 margin-top:20px;
+											 margin-bottom:100vh;
+												border-radius:12px;
+												color:black;
+								}
+								@keyframes zola{
+												0%{transform:translateY(-5px);}
+												5%{transform:translateY(5);}
+												10%{transform:translateY(-4px);}
+												15%{transform:translateY(4px);}
+												20%{transform:translate(-3px);}
+												25%{transform:translate(3px);}
+												30%{transform:translate(-2px);}
+												35%{transform:translateY(2px)}
+												40%{transform: translateY(-1px);}
+												45%{transform:translateY(1px);}
+											50%{transform:translateY(-5px);}
+												55%{transform:translate(5);}
+												60%{transform:translate(-4px);}
+												65%{transform:translate(4px);}
+												70%{transform:translate(-3px);}
+												75%{transform:translateY(3px);}
+												80%{transform:translateY(-2px);}
+												85%{transform:translateY(2px)}
+												90%{transform: translateY(-1px);}
+												100%{transform:translateY(1px);}
+								}
+								
+						
+								
+								#footlinks div{
+								    height:150px;
+												width:300px;
+												padding:8px;
+												border:solid 2px cyan;
+												color:black;
+												margin:8px;				background:rgba(255,255,255,0.6);
+									   overflow:auto;
+												
+								}
+								#footlinks a{
+												color: purple;
+								}
+								#attrib{
+												border-bottom:solid 1px aqua;
+												padding:8px;
+												color:white;
+								}
+								#shlink,#mshlink{
+								    display:flex;
+								    justify-content:center;
+								    align-items:center;
+												height:75px;
+												width:250px;
+												background:linear-gradient(to bottom left,blue,#DDA745);	
+												border-radius:50px;
+												color:white;
+												font-weight:bold;
+												text-decoration:none;
+											 animation:zola 2s 0.5s linear infinite alternate;
+								}
+								
+							
+								#pgr4{
+								height:100vh;
+								width:100%;
+								display:none;
+								overflow:auto;
+								padding:4px;
+											
+								}
+								
+						.cfinput	{
+						    height:60px;
+						    width:200px;
+						    border-radius:50px;
+									 border:solid 1px cyan;
+										outline:none;
+										padding:12px;
+										background:white;
+						}	
+						.pgr4box{
+						height:100vh;
+						width:100%;
+						border-radius:12px;
+						display:flex;
+						flex-direction:column;
+						justify-content:center;
+						align-items:center;
+						padding:12px;
+						margin-top:20px;
+						margin-bottom:20px;
+						background:linear-gradient(rgba(249, 241, 240,1),rgba(249, 241, 240,1),rgba(249, 241, 240,1),rgba(249, 241, 240,1));
+						color:black;
+						}
+						.pgr4card{
+						    display:flex;
+						    flex-direction:column;
+						    justify-content:center;
+						    align-items:center;
+								  width:300px;
+										padding:8px;
+										background:none;
+							
+										
+						}
+						
+						
+					 .buttondown{
+					 		
+					 		height:60px;
+					 		border:none;
+					 		background:linear-gradient(45deg,blue,#DDA745);	
+					   border-radius:50px;
+					 		color:white;
+					 		font-weight:bold;
+					 		font-size:16px;
+					 		border: none;
+					 		padding:12px;
+					 		
+					 				
+					 }
+					 .buttondown:active{
+					 			 transform:scale(0.9);
+					 }
+					 
+					 .downbtncard{
+					 				display:flex;
+					 				justify-content: space-evenly;
+					 				align-items:center;
+					 				animation:zola 7s 0.5s linear infinite alternate;
+					 }
+					 #pgr5{
+					     height:100vh;
+					     width:100%;		    
+					 				color:black;
+					 				display:none;
+					 				padding:0px;
+					 				overflow:auto;
+					 				background:none;
+					 }
+					 #pgr5card{
+					 				
+					 				width:100%;
+					 				background:linear-gradient(rgba(249, 241, 240,1),rgba(249, 241, 240,1),rgba(249, 241, 240,1),rgba(249, 241, 240,1));
+					     margin-top:20px;
+					     margin-bottom:20px;
+					     padding:20px 4px 20px 4px;
+					     border-radius:12px;
+					 }
+					 .shareoncard div{
+					    display:flex;
+					    justify-content:center;
+					    align-items:center;
+					    flex-direction:column;
+					 			padding:12px 8px 12px 8px;
+					 			border-bottom:solid 1px silver;	
+					 }
+					 @keyframes nextup(){
+					 				0%{transform:translateY(0px);}
+					 				100%{transform:translateY(20px);}
+					 }
+					 
+					 #cdpage{
+					     
+					 				display:none;
+					 	   height:100vh;
+					     width:100%;
+					     padding:4px;
+         background:none;
+					    overflow:auto;
+					 }
+					 #cdpage div{
+					    
+					 				display:flex;
+					 				flex-direction:column;
+					 				justify-content:center;
+					 				align-items:center;
+					 		
+					     
+					 }
+					 .cdcard{
+					 				display:flex;
+					 				flex-direction:column;
+					 				justify-content:center;
+					 				align-items:center;
+					 				height:100vh;
+					 				width:100%;
+					 				border-radius:12px;
+					 				margin-top:20px;
+					 				margin-bottom:20px;
+					 				background:linear-gradient(rgba(249, 241, 240,1),rgba(249, 241, 240,1),rgba(249, 241, 240,1),rgba(249, 241, 240,1));
+					 				color:black;
+					 				padding:8px;
+					 				}
+					
+					 #showcd{
+					     display:flex;
+					     justify-content:center;
+					     align-items:center;
+					     height:100px;
+					     width:100px;
+					 		 	font-size:42px;
+					 				font-weight:bold;	
+					 				color:black;
+					 			 background:none;
+					 			 padding:8px;
+					 			 border-radius:50%;
+					 			 animation:timerdown 1s ease infinite;
+					 }
+					 #pgr1head img{
+					 				height:200px;
+					 				width:250px;
+					 				object-fit: contain;
+					 }
+					 @keyframes timerdown{
+					 				
+					 				0%{transform:scale(0.5); opacity:0;}
+					 				100%{transform:scale(3); opacity:1;}
+					 }
+					@keyframes chamak{
+									0%{transform:scale(1); opacity:0; background:#F8AFA6;}
+									100%{transform:scale(0.8); opacity:1; background:#FADCD9;}
+									
+											
+											}
+					@keyframes bani{
+					    0%{transform:translateY(5%) scale(0.8); opacity:0;}
+					    100%{transform:translateY(-5%) scale(1); opacity:1;}
+					}
+			
+			@keyframes shakenow{
+			   
+			    0%{transform:translateX(100%) rotate(5deg) scale(0.8);}
+			    
+			    100%{
+			      transform:translateX(0%) rotate(-5deg) scale(1);  
+			    }
+			}
+			.repocard{
+			    padding:8px;
+			    background:white;
+			    border-radius:8px;
+			    
+			}
+			.repocard p{
+			    padding:8px;
+			    border-bottom:solid 1px cyan;
+			}
+			@keyframes spreadup{
+			    0%{transform:translateY(-50%) scale(0);}
+			    50%{transform:translateY(50%) scale(1.5);}
+			    100%{
+			        transform:translateY(0%) scale(1);
+			    }
+			}
+			#fnpng{
+			
+			    display:none;
+			    position:relative;
+			    height:300px;
+			    width:100%;
+		    	 background-position:center;
+									 background-repeat:no-repeat;
+									 background-size:cover;
+									    
+			    
+			}
+			#fnpng img{
+			    height:100%;
+			    width:100%;
+			}
+			#fnpng div{
+		     height:100%;
+		     width:100%;
+			    display:flex;
+			    flex-direction:column;
+			    justify-content:center;
+			    align-items:center;
+			}
+			#showpercent{
+			   
+			    font-size:64px;
+			    font-weight:bold;
+			    animation:spreadup 2s 2 ease;
+			}
+			#cents{
+			    font-size:20px;
+			}
+			.prizechart{
+			    width:250px;
+			    padding:12px;
+			    background:white;
+			    border-radius:8px;
+			}
+			
+			#mustsharepg{
+			display:none;
+			position:absolute;
+			    height:100vh;
+			    width:100%;
+			    background:#E3D9BE;
+			    padding:8px;
+			    z-index:150;
+			    color:black;
+			}
+			
+			#mustsharepg div{
+			height:100vh;
+			width:100%;
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+			  padding:8px;
+			  border-radius:8px;  
+			  background:none;
+			  color:black;
+			  font-weight:bold;
+			}
+			#stopthem{
+			    display:none;
+			    position:fixed;
+			    height:100vh;
+			    width:100vw;
+			    background:#E3D9BE;
+			    padding:8px;
+			    z-index:100;
+			    font-size:16px;
+			    color:black;
+			    overflow:auto;
+			}
+			#stopthem div{
+			    width:100%;
+			    display:flex;
+			    flex-direction: column;
+			    justify-content:center;
+			    align-items:center;
+			    padding:8px;
+			    
+			}
+			
+		#messit div{
+			     
+			     width:300px;
+			     display:flex;
+			     justify-content:center;
+			     align-items:center;
+			     padding:50px 12px 24px 12px;
+			     background:#ffffff;
+			     box-shadow:0px 3px 3px grey;
+			     border-radius:50px;
+			     
+			}
+		
+			.adstogo{
+			    
+			   width:300px;
+			   padding:8px;
+			   font-size:12px;
+			  
+			}
+			.adstogo p{
+			    
+			    width:200px;
+			    padding:8px;
+			    box-shadow:0px 1.5px 3px silver;
+			    border-radius:8px;
+			    background:#fff;
+			}
+			
+			#instoretitle{
+			  
+			   padding:12px;
+			   background:linear-gradient(to bottom left,#DDA745,blue);
+			   color:white;
+			   border-radius:50px;
+			   font-size:72px;
+			   outline:dotted 2px white;
+			   text-align:center;
+			}
+			
+			#storeaddress{
+			
+			   padding:12px;
+			   background:#F6C999;
+			   color:black;
+			   border-radius:8px;
+			   
+			}
+			
+		.quizintro{
+		   
+		    padding:12px;
+			   background:#E3D9BE;
+			   color:black;
+			   border-radius:8px; 
+		    
+		}
+				</style>
+</head>
+<body>
+       <div id="stopthem">
+		        <div id="messit"> 
+		        
+		        </div>
+		        <div>
+		            Thanks for participation!
+		        </div>
+		        <div class="adstogo">
+		           <p><button onclick="mshfun()" class="buttondown">Replay Quiz</button></p>
+		           <p><a href="https://bit.ly/Renuka-Collection-Quiz-Contest" target="blank">Start Renuka Collection Killari Quiz</a></p>
+		           <p><a href="https://bit.ly/Vishal-General-Store-Quiz-Contest" target="blank">Start Vishal General Store Killari Quiz</a></p>
+		           <p><a href="https://bit.ly/Mauli-Coaching-Classes-Quiz-Contest" target="blank">Start Mauli Coaching Classes Quiz</a></p>
+		           <p><a href="https://bit.ly/CheckWeightOnSolarPlanets"'"
+		            " target="blank">Click here to see your weight on solar planets</a></p>
+	<p><a href="https://bit.ly/DiveInFuture" target="blank">Click here to see your future</a></p>	
+	<p><a href="https://bit.ly/personalityCake" target="blank">Click here to see what type of person you are?</a></p>            
+		        </div>
+		    </div> 
+		<div id="mustsharepg">
+		    <div>
+		        <div>
+		      <h2><span id="contname"></span></h2>
+		      <p>तुमच्या 3 मित्रांना किंवा ग्रुप ला व्हॉट्सॲप वरती शेअर करा व प्रश्नमंजुषा सुरू करा.*required to restart Quiz</p> 
+		      <p><a  id="mshlink" onclick="mshsharefun()">Share on WhatsApp</a></p>
+		      <p><p>एकूण शेअर</p><p id="mshcount">0</p></p>
+		      </div>
+		    </div>
+		</div>
+		<div id="pgr1box">	
+		<div id="pgr1" class="gradani" >
+						
+						<div id="pgr1card">
+										
+										<div id="pgr1head">
+											<div class="showfeed">
+											<p id="rsalute"></p>
+								   <p id="showb"></p>
+								   </div>
+								   <div id="rnamecard">   
+									 <p id="instoretitle">वेलकम फुटवेअर</p>
+          <p id="storeaddress">किल्लारी कारखाना</p>
+     
+									 <p class="quizintro">🎊Quiz Contest🎊</p>	
+									 <p class="quizintro">😊हिवाळी प्रश्नमंजुषा😊</p>
+									
+										</div>
+										</div>
+									
+			<div id="inpbox">
+			
+					<select id="inputmode" oninput="checkmode()">
+					 <option>choose answer mode</option>
+						<option value="0">Tap mode (Default)</option>
+						<option value="1">Speak mode (new)</option>      
+						</select>
+										<div id="inputslab">
+										<input oninput="personal()" type="text" id="qfname" placeholder="Enter Your name...">
+										<button class="butnext" onclick="getstart()">Start</button>
+										</div>
+										</div>			
+						</div>
+			
+						<div>
+						<div id="pgr1headmid">
+						<div><p> प्रश्नमंजुषा सोडवा ! एकूण १० प्रश्न ६० सेकंदाच्या आत तुम्हाला सोडवायची आहेत.</p></div>
+					<div><p> कमीत कमी वेळेमध्ये जो कोणी अधिक गुण मिळवेल त्याला बक्षीस म्हणून Certificate 🏆 मिळेल. </p></div>
+					<div><p>एका प्रश्नाला १० गुण असतील. एकूण गुण १०० असतील. तुम्हाला पास होण्यासाठी कमीत कमी ३० गुण मिळवायचे आहेत.</p></div>
+					<div><p>ही प्रश्नमंजुषा शाळा/कॉलेज मध्ये शिकणाऱ्या सर्व विद्यार्थ्यासाठी आणि नागरिकांसाठी असेल. याला सगळ्यांचा उत्तम प्रतिसाद मिळेल ही आमची आशा आहे.</p></div>
+					<div><p>तुमच्या जनरल नॉलेज मध्ये भर पाडण्यासाठी हा एक नवा प्रयत्न</p></div>
+					<div><p>तुम्ही या वेबसाईट ला भेट दिल्याबद्दल तुमचे धन्यवाद. </p></div>
+					
+					
+		</div>
+		</div>
+		<div>
+		    <div class="prizechart">
+		       <h2>🎉 Prizes 🎁</h2>
+		       <ol>
+		       <li><b>First Prize 🥇</b> : Cello Gripper pen & notebook</li>
+		       <li><b>Second Prize 🥈</b> : Apasara pencil ✏️ & drawing book</li>
+		       <li><b>Third Prize 🥉</b>: 2 Dairy milk Cadbury chocolates</li>
+		       </ol>
+		       <small>*Winners are selected automatically randomly! No human interference.| above prizes given to thoes participants whoes certificates indicates these medals [🥇🥈🥉] , t&c apply.</small> 
+		     </div>
+		</div>
+				<div id="footlinks">	
+								
+				<div><p><strong>प्रश्नमंजुषा सादर करते</strong></p>
+						<p>Welcome Footwear,Killari karkhana.</p>
+				<p>✨</p>
+	
+			</div>
+			
+	<div>
+				<p>वेबसाईट निर्माते : <a href="https://instagram.com/bk.murumbe">बालाजी मुरंबे</a> <p>~Written Code (Developer)</p>
+<p>वेलकम फुटवेअर : संभाजी सूर्यवंशी</p>				
+				</p>
+			
+				<p>Creative work done by Balaji Murumbe <a href="https://sparkerbm.business.site" target="_blank">See here</a></p>
+</div>
+<div>
+				<p>तुम्हाला तुमच्या दुकानाकडून/कॉलेजकडून/इतर कुणाकडून अशी प्रश्न मंजुषा सादर करायची असेल तर नक्की WhatsApp ला message टाका.</p>
+			<p>	<a href="https://wa.me/message/APOCHIOCNX36P1" target="_blank">Send Message</a></a></p></div>
+				
+			</div>
+			
+</div>
+</div>
+
+<div id="cdpage">
+				<div>
+				<div class="cdcard">
+									<h2>वेलकम फुटवेअर किल्लारी</h2>
+									<p id="welname"></p>
+									<p>3 seconds to start Quiz....</p>
+								<div>
+										<p id="showcd"></p>		
+								</div>
+					</div>
+					</div>
+</div>
+
+
+		<div id="pgr2">
+		
+		<div id="pgr2head">
+						
+						
+		</div>				
+		<div id="seldiv">
+						
+		</div>
+		
+		</div>
+		
+		
+<div id="pgr3">				
+<div id="pgr3card">
+<div id="fnpng">
+<div>  
+<p>Score</p>      
+<p id="showpercent"></p>
+</div>      
+</div>			
+<div>
+<p>वेलकम फुटवेअर किल्लारी</p>
+</div>
+
+<div>
+<h2>🎊 अभिनंदन <span id="yourn2"></span>! तुम्ही यशस्वीपणे प्रश्नमंजुषा दिली आहे, तुम्हाला प्रश्नमंजुषा सर्टिफिकेट मिळाले आहे.</h2>
+<p>तुमचा निकाल तुमच्या WhatsApp status ला शेअर करा 🎉</p>
+</div>								
+<div class="shareoncard">										
+<div>
+<a id="shlink" onclick="sharecounting()">Share on WhatsApp</a>
+</div>	
+<div>
+    	<p>👋 तुमचे प्रमाणपत्र डाऊनलोड करा...<span id="sharescount"></span></p>
+					<button onclick="jumptopgr4()" class="buttondown">Download Certificate</button>
+	</div>				
+</div>
+<div><p><b>वेलकम फुटवेअर किल्लारी</b> : <span id="pscore"></span></p></div>
+
+<div>
+    <h2>Quiz Report</h2>
+ <div id="repo">  
+ </div>
+</div>
+
+</div>
+</div>
+
+	
+	<div id="pgr4">
+				<div class="pgr4box">
+								<h2>Download Your Certificate</h2>
+								<p>Quiz contest certificate</p>
+								<div class="pgr4card">
+										<p>Enter first name</p>
+									<input style="" type="text" class="cfinput" id="myfname" onchange="myinp()" placeholder="Ex: Balaji" >
+					
+									
+									<p>Enter your last name</p>
+						<input type="text" class="cfinput" id="mylname" placeholder="Ex: Murumbe" onchange="myinp()">
+						
+						
+							<p>Enter your school/college name</p>
+						<input  type="text" class="cfinput" id="myschool" placeholder="Ex: Shivaji vidyalaya killari" onchange="myinp()">
+					</div>
+			<p>	<button class="butnext" onclick="jumptopgr5()">Next</button></button></p>
+				</div>
+</div>
+		
+		<div id="pgr5">
+						<div id="pgr5card">
+						<div>
+								<h2>Share Certificate</h2>
+						<div id="crtfpreview">
+								
+										
+						</div>
+						</div>
+						<div class="downbtncard">
+										<button onclick="sharecanvas()" class="buttondown">Share</button>
+										<button onclick="down()" class="buttondown">Download</button>
+						</div>
+		</div>
+		</div>
+	
+				<script>
+				 
+							
+var seldiv = document.getElementById("seldiv");		
+var newdiv = document.getElementsByClassName("newdiv1");					
+var cshopname="वेलकम फुटवेअर किल्लारी";
+var cshopnameen="Welcome footwear Killari";
+var cshopquizlink="https://bit.ly/Vishal-General-Store-Quiz-Contest";
+var arrq = ["जग प्रसिध्द ब्रँड निकी (nike) चे फाऊंडर कोण आहेत ?","महाराष्ट्र राज्य चे उपमुख्यमंत्री कोण आहेत ?","अवकाशाचा रंग कोणता असतो ?","वेलकम फुटवेअर कोणत्या गावामधे आहे ?","दिल्ली चे मुख्यमंत्री कोण आहेत ?","स्वयंपाकाच्या गॅस मध्ये कोणत्या प्रकारचा वायू असतो ?","किल्लारी गावाचा तालुका कोणता आहे ?","खालीलपैकी कोणती शाळा किल्लारी गावामध्ये नाही ?","किल्लारी गावामध्ये खालीलपैकी कशाचा तुटवडा आहे ?","किल्लारी मध्ये खालीलपैकी कोणते दुकान नाही ?"];
+var arrop =  [["फिल नाईट","बिल बावरमन ","दोघेही"],["एकनाथ खडसे","देवेंद्र फडणवीस","एकनाथ शिंदे"],["निळा","काळा","पिवळा"],["किल्लारी","उमरगा","लातूर"],["देवेंद्र फडणवीस","केजरीवाल","उद्धव ठाकरे"],["मिथेन","बेऊटेन","हायड्रोजन"],["औसा","उमरगा","लातूर"],["छत्रपती शिवाजी विद्यालय","महाराष्ट्र विद्यालय","डी वाय पाटील स्कूल"],["सांडपाणी" ,"पिण्याचे पाणी" ,"वरील पैकी दोन्ही"],["वेलकम फुटवेअर","रेणुका कलेक्शन","यापैकी नाही"]];
+								var arrans =  ["दोघेही","देवेंद्र फडणवीस" ,"काळा","किल्लारी","केजरीवाल","बेऊटेन","औसा" ,"डी वाय पाटील स्कूल","वरील पैकी दोन्ही","यापैकी नाही"];
+								
+								var arrnm =[
+												["qno1","qno1","qno1"],
+												["qno2","qno2","qno2"],
+												["qno3","qno3","qno3"],
+												["qno4","qno4","qno4"],
+												["qno5","qno5","qno5"],
+												["qno6","qno6","qno6"],
+												["qno7","qno7","qno7"],
+										  ["qno8","qno8","qno8"],
+										  ["qno9","qno9","qno9"],
+										  ["qno10","qno10","qno10"]
+								]
+								var arrids= [
+												["op11","op12","op13"],
+												["op21","op22","op23"],
+												["op31","op32","op33"],
+												["op41","op42","op43"],
+												["op51","op52","op53"],
+												["op61","op62","op63"],
+												["op71","op72","op73"],
+												["op81","op82","op83"],
+												["op91","op92","op93"],
+												["op101","op102","op103"]
+								];
+								var arrofclass=[
+								
+								"class01",
+								"class02",
+								"class03",
+								"class04",
+								"class05",
+								"class06",
+								"class07",
+								"class08",
+								"class09",
+								"class010"
+						
+								]
+								var q1= document.getElementById("q1");
+								
+								var userans=[];
+								var arrn=0;
+								var qcount=0;
+							 var tt=0;
+					   var mcount;
+
+var cindx;
+
+function getans(){
+var getuserin = document.getElementsByName(arrnm[qcount][0]);
+for(var i=0;i<getuserin.length;i++){
+    var cvalue =getuserin[i].value; 
+if(arrans[qcount]==cvalue){
+		cindx = i;
+  }
+ }
+}
+
+var inpmode=0;
+function checkmode(){
+var getmode = document.getElementById("inputmode").value;
+inpmode=getmode;  
+console.log(inpmode);    
+}
+
+function check(){
+
+mcount=qcount - 1;
+var idopt = document.getElementsByClassName(arrofclass[mcount]);
+var cardquest = document.getElementsByClassName("newdivbox")[0];
+if(inpmode==1){
+var arruserinp =["one","two","three"];
+var arruserindx =[0,1,2];
+for(var l=0;l<arruserinp.length;l++){
+var inxz = arruserindx[l];
+if(inpword==arruserinp[l]){
+var getuserin = document.getElementById(arrids[mcount][inxz]);
+userans[mcount] = getuserin.value;
+
+if(userans[mcount]==arrans[mcount]){
+console.log("opt1 = "+inpword);   idopt[inxz].style.background="dodgerblue";
+
+}
+else{
+idopt[inxz].style.background="red";
+navigator.vibrate([50,3,50]);	
+idopt[cindx].style.background="dodgerblue";
+   }
+  }
+ }
+}
+
+if(inpmode==0){
+console.log("hello");
+var getuinput = document.getElementsByName(arrnm[mcount][0]);
+for(var i=0;i<getuinput.length;i++){
+if(getuinput[i].checked){
+userans[mcount]=getuinput[i].value;
+if(userans[mcount]==arrans[mcount]){
+audio3.play();
+idopt[i].style.background="dodgerblue";
+cardquest.style.animation="shakenow 0.5s ease";
+}
+else{
+negativetap.play();
+idopt[i].style.background="red";
+navigator.vibrate([30,3,30]); 
+idopt[cindx].style.background="dodgerblue";	
+cardquest.style.animation="zola 0.5s ease";
+   }
+  }
+ }
+}
+
+if(mcount!=(arrq.length)-1){
+
+setTimeout(start,500);
+}
+console.log(mcount);
+		
+if(mcount==9){
+
+submit();
+										
+}
+
+				}
+				
+				
+				
+					var score=0;
+					var totalq=0;
+					var wrongans=0;
+					var correctans=0;
+			  var noti="";
+			 	var y = 0;
+			 	
+				
+								
+	
+			function 	personal(){
+					
+			}
+			
+			var cdcount=0;
+			var cdcounter;
+			
+			
+			function startercount(){
+			var cdpage = document.getElementById("cdpage");
+			 startpg.style.display="none";
+			    cdpage.style.display="block";
+						 cdcounter= setInterval(startcount,1000);
+						 audiocount.play();
+			}
+			
+	var recognizer;
+ var inpword="";
+function predictWord() {
+ // Array of words that the recognizer is trained to recognize.
+ const words = recognizer.wordLabels();
+ recognizer.listen(({scores}) => {
+   // Turn scores into a list of (score,word) pairs.
+   scores = Array.from(scores).map((s, i) => ({score: s, word: words[i]}));
+   // Find the most probable word.
+   scores.sort((s1, s2) => s2.score - s1.score);
+
+inpword=scores[0].word;
+console.log(inpword);
+if(inpword=="one" || inpword=="two" || inpword=="three"){
+if(mcount!=9){
+check();
+}
+}
+ }, {probabilityThreshold: 0.80});
+ 
+}
+
+async function app() {
+ recognizer = speechCommands.create('BROWSER_FFT');
+ await recognizer.ensureModelLoaded();
+ predictWord();
+ 
+}
+
+
+	
+			function startcount(){
+			    var welname = document.getElementById("welname");
+			    var  saysomewords=["Ready","Set","Go!"];
+			    welname.innerHTML=saysomewords[cdcount];
+							var countdown = 3-cdcount;
+									var showcd = document.getElementById("showcd");
+							showcd.innerHTML=countdown;
+	
+						if(countdown==0){
+						  cdpage.style.display="none";
+						  startstart();	
+								clearInterval(cdcounter);
+								
+								
+						  
+								
+						}	
+						cdcount=cdcount+1;
+						if(cdcount==4){
+						    cdcount=0;
+						}
+			}
+		  var winstat=4;
+		  var prizename="";
+				function final(){
+				var crbox;
+				var wrbox;
+				var repo = document.getElementById("repo");
+				repo.setAttribute("class","repocard");
+				for(var i=0;i<arrq.length;i++){
+			       console.log(arrq[i]);
+			       
+								if(userans[i]==arrans[i]){
+								
+							 
+								console.log("correct"+userans[i]+"="+arrans[i]);
+								crbox = "=> ✔️ Correct | "+"You answered:-"+userans[i]+" | ";
+										score+=10;
+								  correctans = correctans+1;
+								}
+								
+							else{
+							wrongans= wrongans+1;
+							iscorrect=2;
+											console.log("wrong : "+userans[i]+"="+arrans[i]);
+											
+											crbox = "=> ❌ Wrong | "+"You answered:-"+userans[i]+" | "+"correct answer :-"+arrans[i];
+																	}
+									var cquest="Q"+(i+1)+": "+arrq[i]; 						
+									var repoele = document.createElement("p");
+									var repoeleq = document.createElement("p");
+									var repoqstrong= document.createElement("b");
+									
+									var repoqtext = document.createTextNode(cquest);
+								var repotext = document.createTextNode(crbox);
+								console.log(score);
+								repoeleq.appendChild(repoqstrong);
+								repoqstrong.appendChild(repoqtext);
+								repoele.appendChild(repotext);
+								
+								repo.appendChild(repoeleq);
+								repo.appendChild(repoele);
+								
+								}
+								
+								var crcount="✔️Correct:-"+correctans
+        var wrcount="❌Wrong:-"+wrongans;
+        var srcount="🏆Score:-"+score+"%";
+        var tilltimetext ="⌛Time:-"+sectik+"secs";
+        var arrwinsc=[100,90,80];
+        var arrwinlk=[100,50,10];
+        var winnerstat="";
+        
+        if(arrwinsc[0]==score && arrwinlk[0]==randselect){
+        winstat = 1;
+        prizename ="2 in 1 Notebook 📓 & Achievement Certificate";
+        winnerstate="First Prize 🥇"+":"+prizename;
+        }
+       else if(arrwinsc[1]==score && arrwinlk[1]==randselect){
+        winstat = 2;
+        prizename="Cello Gripper pen 🖊️ & Achievement Certificate";
+        winnerstate="Seocnd Prize🥈"+":"+prizename;
+        }
+       else if(arrwinsc[2]==score && arrwinlk[2]==randselect){
+        winstat = 3;
+        prizename="Apasara Pencil ✏️ & Achievement Certificate";
+        winnerstate="Third Prize 🥉"+":"+prizename;
+        }
+        else{
+        winstat = 4;
+        prizename="Certificate of participation 🎉";
+        winnerstate="General Prize"+ ":"+prizename;
+        }
+        
+								var canscount = document.createElement("p");
+								 var wanscount = document.createElement("p");
+								 var scorecount = document.createElement("p"); 
+								 var tilltime = document.createElement("p"); 
+								 var repowin = document.createElement("p");
+									var repowinnode=document.createTextNode(winnerstate);
+								 var canscountnode = document.createTextNode(crcount);
+								 var wanscountnode = document.createTextNode(wrcount);
+         var scorenode = document.createTextNode(srcount);
+         var tilltimenode = document.createTextNode(tilltimetext);
+canscount.appendChild(canscountnode);
+wanscount.appendChild(wanscountnode);
+scorecount.appendChild(scorenode);
+tilltime.appendChild(tilltimenode);
+repowin.appendChild(repowinnode);
+repo.appendChild(canscount);
+repo.appendChild(wanscount);
+repo.appendChild(scorecount);
+repo.appendChild(tilltime);
+repo.appendChild(repowin);
+								
+				}
+				
+								var startpg = document.getElementById("pgr1box");
+								var midpage = document.getElementById("pgr2");
+								var endpage = document.getElementById("pgr3");
+								var mynameis ="";
+		      var yourn;
+		      
+		function getstart(){
+		yourn = document.getElementById("qfname").value;
+		
+					if(yourn!=""){
+							
+							      startercount();
+							  
+					}
+					else{
+									alert("Please Enter your name");
+					}	
+		}
+
+var binterval =	 setInterval(bordfun,1000);
+function bordfun(){
+	var getbord = document.getElementById("showb");
+	var rsalute = document.getElementById("rsalute");
+ var funarr = [
+		"scored 100% in just 30s.",
+		"scored 60% in just 10s.",
+		"scored 80% in just 20s.",
+		"scored 70% in just 10s.",
+		"scored 50% in just 10s.",
+		"scored 100% in just 30s.",
+		"scored 90% in just 12s.",
+		"scored 100% in just 20s."
+		];
+	var salutearr=[
+ "Balaji Murumbe",
+	"Samadhan Birajadar",
+	"Shubham Potdar",
+ "Shubham Walke",
+ "Sarthak Parsalge",
+ "Karan Mane",
+ "Ajay Aairekar",
+ "Babita Kavekar",
+ "Nikita Nikam",
+ "Sandhya Nimbale",
+ "Kriti Jadhav",
+ "Shweta Sonar",
+ "Sneha Jadhav",
+ "Priti ghodake",
+ "Smita patil",
+ "Swaranjali Patil",
+ "pranjali patil",
+ "Anushka Shetty",
+ "Anu patil",
+ "Amruta jadhav",
+ "Sunita kale",
+ "Shraddha Sharma",
+ "Neha Parsalge"
+	];
+		var funarrlen = funarr.length;
+		var funarrlen2 = salutearr.length;
+		var randn1 = Math.floor(Math.random()*funarrlen)+0;
+		var randn2 = Math.floor(Math.random()*funarrlen2)+0;
+		rsalute.innerHTML=salutearr[randn2];
+		getbord.innerHTML=funarr[randn1];
+		
+		  
+	 
+		}
+  
+		var sharesignal=0;
+		var mshpage=document.getElementById("mustsharepg");	    
+		function mshfun(){
+
+mshpage.style.display="block";
+var contname = document.getElementById("contname");
+contname.innerHTML=getfname;
+		    
+		}
+		
+var mshares=0;	
+
+function		mshsharefun(){
+		  var mshcount = document.getElementById("mshcount");
+		    var mshlink = document.getElementById("mshlink");
+		    var stopthempage = document.getElementById("stopthem");
+		    var sharequiz = `whatsapp://send?text=*${cshopname} यांनी प्रश्नमंजुषा स्पर्धा 🌟 सादर केलेली आहे, प्रश्नमंजुषा सुरू करण्यासाठी खाली क्लिक करा.👇 ${cshopquizlink}*`;
+mshlink.setAttribute("data-action","share/whatsapp/share");
+mshlink.setAttribute("href",sharequiz);  
+mshares=mshares+1;
+mshcount.innerHTML=mshares;
+if(mshares==3){
+ mshpage.style.display="none";
+ localStorage.clear();
+ stopthempage.style.display="none";
+}
+
+}
+	
+var audio3=new Audio("https://docs.google.com/uc?export=download&id=1g2w4ffzXh5HV1w8kbd4Wbrn4NdYGP6F5");
+var audio4=new Audio("https://docs.google.com/uc?export=download&id=1mKGPfa7XpP65QONfMiRXHv68BbETnfEy");
+var audio5=new Audio("https://docs.google.com/uc?export=download&id=1gnPV3wmXuCU_KwlqvQYOsMEGu6wdjDnl");
+var audio6=new Audio("https://docs.google.com/uc?export=download&id=1gLjYBrmlVpToLL2g50x5Ygl7YBbBNFBl");
+var audio7=new Audio("https://docs.google.com/uc?export=download&id=1hM6fk9lMCjpCEoanK_PLVeASVhuffQRc");
+var audio8=new Audio("https://docs.google.com/uc?export=download&id=1hNjGR1ysa8lPEZfLYdj_rQ5eol1GhPLU");
+var audio9=new Audio("https://docs.google.com/uc?export=download&id=1hglQzh5ei9aHcn95PEpvShHvqh6tfCHr");
+var audio10=new Audio("https://docs.google.com/uc?export=download&id=1hjp6JWeRZ8HzJI2eU3QEPeJNve7OPJuN");
+var audio11=new Audio("https://docs.google.com/uc?export=download&id=1hkMZbVzJ4NgqBjIgepZ41tw3AdqVVXhW");
+var audio12=new Audio("https://docs.google.com/uc?export=download&id=1hpKD2NSYRx8T5JvC3vOn4H4kLhyW6kMI");
+var audio13=new Audio("https://docs.google.com/uc?export=download&id=1i1i6Ra0ybuzefElBKb1Hoveus_39nH6G");
+var audiocount=new Audio("https://docs.google.com/uc?export=download&id=1gLjYBrmlVpToLL2g50x5Ygl7YBbBNFBl");
+
+var negativetap =new Audio("https://docs.google.com/uc?export=download&id=1mJwVJfuoJ8eux225ZgLzIuYifk-Rv3Ee");
+
+								function start(){
+								
+								if(qcount>0){
+									removeq(); 
+									}	
+								
+							
+								mynameis=yourn;
+						
+								var yournbox2 = document.getElementById("yourn2");
+								
+								yournbox2.innerHTML = yourn;
+var newdivbox = document.createElement("div");							
+var newdiv1= document.createElement("div");
+var newdiv2= document.createElement("div");
+newdivbox.setAttribute("class","newdivbox");
+newdiv1.setAttribute("class","newdiv1");
+newdiv2.setAttribute("class","newdiv2");
+var hnewele = document.createElement("p");
+var notydiv = document.createElement("div");
+notydiv.setAttribute("class","notybox");
+var noty =document.createElement("p");
+noty.setAttribute("class","noty");
+notydiv.appendChild(noty);
+
+
+
+
+var seqnum = document.createElement("p");
+var qnumber = qcount+1+"/"+arrq.length;
+var seqnumtext= document.createTextNode(qnumber);
+seqnum.setAttribute("id","sqnum");
+notydiv.appendChild(seqnum);
+var attrib = document.createElement("p");
+attrib.setAttribute("id","attrib");
+attribnode = document.createTextNode(cshopname);
+attrib.appendChild(attribnode);
+
+var newrap0 = document.createElement("p");
+var newrap1 = document.createElement("p");
+var newrap2 = document.createElement("p");
+
+var newlab0 = document.createElement("label");							  
+var newopt0 = document.createElement("input");			
+var newlab1 = document.createElement("label");		
+var newopt1 = document.createElement("input");	
+var newlab2 = document.createElement("label");
+var newopt2 = document.createElement("input");		
+
+newrap0.appendChild(newlab0);
+newrap0.appendChild(newopt0);
+newrap1.appendChild(newlab1);
+newrap1.appendChild(newopt1);
+newrap2.appendChild(newlab2);
+newrap2.appendChild(newopt2);
+
+newopt0.setAttribute("type","radio");
+newopt1.setAttribute("type","radio");
+newopt2.setAttribute("type","radio");
+
+newopt0.setAttribute("oninput","check()");
+newopt1.setAttribute("oninput","check()");
+newopt2.setAttribute("oninput","check()");
+
+newopt0.setAttribute("value",arrop[qcount][0]);
+newopt1.setAttribute("value",arrop[qcount][1]);
+newopt2.setAttribute("value",arrop[qcount][2]);
+
+newlab0.setAttribute("for",arrids[qcount][0]);		
+newlab1.setAttribute("for",arrids[qcount][1]);
+newlab2.setAttribute("for",arrids[qcount][2]);
+
+newopt0.setAttribute("id",arrids[qcount][0]);	
+newopt1.setAttribute("id",arrids[qcount][1]);			
+newopt2.setAttribute("id",arrids[qcount][2]); 
+
+newopt0.setAttribute("name",arrnm[qcount][0]);
+newopt1.setAttribute("name",arrnm[qcount][1]);
+newopt2.setAttribute("name",arrnm[qcount][2]); 		
+
+newopt0.setAttribute("value",arrop[qcount][0]);
+newopt1.setAttribute("value",arrop[qcount][1]);
+newopt2.setAttribute("value",arrop[qcount][2]);
+
+newrap0.setAttribute("class",arrofclass[qcount]);
+newrap1.setAttribute("class",arrofclass[qcount]);
+newrap2.setAttribute("class",arrofclass[qcount]);
+
+
+								  var opttextnode0 = document.createTextNode(arrop[qcount][0]);
+								  var opttextnode1 = document.createTextNode(arrop[qcount][1]);
+var opttextnode2 = document.createTextNode(arrop[qcount][2]);
+
+
+newlab0.appendChild(opttextnode0);
+newlab1.appendChild(opttextnode1);
+newlab2.appendChild(opttextnode2);
+
+								  
+								  var htextnode = document.createTextNode(arrq[qcount]);
+								  
+								  hnewele.appendChild(htextnode);		
+								  seqnum.appendChild(seqnumtext);
+								  newdiv1.appendChild(hnewele);
+								  
+								  newdiv2.appendChild(newrap0);
+          newdiv2.appendChild(newrap1);
+          newdiv2.appendChild(newrap2);		
+          					  			  				
+								  newdivbox.appendChild(notydiv);				  
+								  newdivbox.appendChild(newdiv1);
+								  newdivbox.appendChild(newdiv2);
+								  seldiv.appendChild(newdivbox);
+          
+getans(); 
+psound();
+
+							qcount=qcount+1;	
+							
+							if(mcount==arrq.length){
+									 		qcount=0;		
+									 }
+												
+									
+							 
+							
+							
+				}	
+				
+				
+function psound(){
+audio11.play();
+}
+				
+				
+				function removeq(){
+			const list = document.getElementById("seldiv");
+
+if (list.hasChildNodes()) {
+  list.removeChild(list.children[0]);
+}
+}
+				function startstart(){
+						  
+								start();
+								midpage.style.display="block"; 
+								timetik = setInterval(timeout,1000);
+								settimelimit = setTimeout(submit,1000*endtime);
+								if(inpmode==1){
+								app();
+								} 
+							
+				}
+				
+				var timetik;	
+				var settimelimit;
+				var sectik=0;
+				var endtime=60;
+				var fnpng= document.getElementById("fnpng");
+			 var options = {
+ 
+  dateStyle: 'full',
+  timeStyle: 'short',
+  hourCycle:'h12'
+  
+  
+};
+
+   var currentdate =new Date();
+   var todaydate= currentdate.toLocaleString('en-US', options);
+   
+				function timeout(){
+							 
+								sectik=sectik+1;
+								var secrem=endtime-sectik;
+								noti = secrem+" seconds left. ";
+								var noties = document.getElementsByClassName("noty")[0];
+								noties.innerHTML=noti;
+								if(sectik>55){
+												noti=secrem+"auto submit ON";
+												noties.innerHTML=noti;
+								}
+								else if(sectik<5){
+										 
+												noti="Welcome "+mynameis+" 🤗 ";		
+												noties.innerHTML=noti;										
+					}			
+					
+					
+				}		
+				var ccount=0;
+				var showpercent=document.getElementById("showpercent");
+				function submit(){
+				
+				 ccount=ccount+1;
+				 if(ccount==1){
+				 final();
+				 clearTimeout(settimelimit);
+					console.log(ccount);
+					savedb();
+					}
+					alert("Awesome ! Your quiz submitted successfully");
+					audio5.play();
+				  shareitbro();
+	
+				  var pscore = document.getElementById("pscore");
+				  
+var arrfeed100=["Wow 😳! you scored 100%","Its very amazing 😍! ,100%","You are superhero🔥 , 100%","What a great 😃 score ,100%","You are genius 🤗, 100%"];
+
+var arrfeed30=["Great 👍 score!","Awesome 😎 score!","fantastic 😍 score!","Hoorah 👋 score!","wonderful 😊! score"];
+				  
+var arrfeed10=["nice keep it on!","well done , Carry on!","🤗 well done","👍 carry on","good! carry on"];
+
+var arrcustfeed = ["You are our best😃 Student.","You are our sweet Student 🤗.","You are our very best Student 😍.","You are our very great Student 😀.","You are very good Student 😊."];
+
+var arrflen = arrfeed30.length;	  
+var randfeed = Math.floor(Math.random()*arrflen)+0;
+      if(score>=30){
+				  pscore.innerHTML=arrfeed30[randfeed]+" "+mynameis+" "+arrcustfeed[randfeed];
+				  }
+				  else if(score<30){
+				  				pscore.innerHTML=arrfeed10[randfeed]+" "+mynameis+" "+arrcustfeed[randfeed];
+				  }
+				  else if(score==100){
+				  				pscore.innerHTML=arrfeed100[randfeed]+" "+mynameis+". You are our most favourite🎉🤗💞 customer.";
+				  }
+				  midpage.style.display="none";
+						endpage.style.display="block";
+						fnpng.style.display="block";
+						fnpng.style.animation="spreadup 1.5s ease-in ";
+						showpercent.innerHTML=score+"%";
+						clearInterval(timetik);									
+					
+								}
+								
+					
+								
+	function shareitbro(){
+												
+var shlink=document.getElementById("shlink"); 
+shlink.setAttribute("data-action","share/whatsapp/share");
+var shareres=`whatsapp://send?text=*अभिनंदन 🎉 ${mynameis}! तुमच्या प्रश्नमंजुषा चा निकाल :🏆गुण:- ${score}%/✔️ बरोबर:${correctans} /❌ चूक:${wrongans}/🕓वेळ: ${sectik}sec/बक्षीस: ${prizename}* ${cshopname} यांनी प्रश्नमंजुषा स्पर्धा 🌟 सादर केलेली आहे, प्रश्नमंजुषा सुरू करण्यासाठी खाली क्लिक करा.👇 ${cshopquizlink}`;
+var sharequiz = `whatsapp://send?text=*${cshopname} यांनी प्रश्नमंजुषा स्पर्धा 🌟 सादर केलेली आहे, प्रश्नमंजुषा सुरू करण्यासाठी खाली क्लिक करा.👇 ${cshopquizlink}*`;
+
+shlink.setAttribute("href",shareres);  
+}
+
+								
+								
+	var shcount=0;					
+	function sharecounting(){
+	shcount=shcount+1;
+	var sharescount = document.getElementById("sharescount");
+	var getcert = document.getElementById("getcert");
+				if(shcount==1){
+				  jumptopgr4();
+				}	
+				
+	}
+				
+	function jumptopgr4(){
+	
+					var pgr4 = document.getElementById("pgr4");
+					var pgr3 = document.getElementById("pgr3");
+					
+					pgr3.style.display="none";
+					pgr4.style.display="block";
+					
+					
+	}
+	
+	function jumptopgr5(){
+	    var pgr4 = document.getElementById("pgr4");
+					var pgr5 = document.getElementById("pgr5");
+					if(myfname!="" && mylname!="" && myschool!=""){
+					audio10.play();
+					audio12.play();
+				 pgr4.style.display="none";
+				 pgr5.style.display="block";
+				 }
+				 else{
+				 				alert("please Enter name,surname,school name");
+				 }
+	}
+			
+					var myfname="";
+					var mylname="";
+					var myschool ="";
+					var todate="";
+					
+	function myinp(){
+					
+   
+			myfname = document.getElementById("myfname").value;	
+			mylname = document.getElementById("mylname").value;	
+			myschool = document.getElementById("myschool").value;	
+			todate = new Date();
+			
+			}
+			
+			
+	function	setup(){
+	
+			c =	createCanvas(350,500);
+						background("white");
+			pg=createGraphics(350,500);			
+			c.id("canva");		
+			c.parent("crtfpreview");
+				
+				}
+			
+				function draw(){
+				  if(myfname!="" && mylname!="" && myschool!=""){
+					 drawcert();
+					 
+					 }
+							
+				}
+				var randselect = Math.floor(Math.random()*100)+1;
+				
+				var cfyclrtext="#273431";
+				var cfyborderclr="#8C6167";
+				var cfylineclr="#8C6167";
+				var cfymedal="🏆";
+				var cfytype="Of Participation";
+				
+				function certifyclr(){
+			
+				 
+				 if(score==100 && randselect==100){
+				 
+				   cfyclrtext="orange";
+				   cfyborderclr="orange";
+				   cfylineclr="lime";
+				   cfymedal="🥇";
+				   cfytype="Of Achivement 🌠";
+				 }
+				 else if(score==90 && randselect==50){
+				 
+				   cfyclrtext="purple";
+				   cfyborderclr="purple";
+				   cfylineclr="dodgerblue";
+				   cfymedal="🥈";
+				   cfytype="Of Achivement 🌠";
+				 }
+				 else if(score==80 && randselect==10){
+				 
+				   cfyclrtext="grey";
+				   cfyborderclr="grey";
+				   cfylineclr="pink";
+				   cfymedal="🥉";
+				   cfytype="Of Achivement 🌠";
+				 }  
+				    
+				    
+				}
+				
+				function drawcert(){
+				    var x;
+							var y;
+					  certifyclr();
+							
+							
+							pg.fill("#E3D9BE");
+							pg.stroke(cfyborderclr);
+							pg.strokeWeight(10);
+							pg.rect(0,0, 350, 500, 0);
+				
+					  pg.noStroke();
+			   	pg.fill(cfyclrtext);
+							pg.textSize(40);	
+							pg.textAlign(CENTER);
+							pg.textStyle(BOLD);
+							pg.text("CERTIFICATE",20,50,300,300);
+			   	pg.fill("black");
+							pg.textSize(11);	
+							pg.textAlign(CENTER);
+							pg.textStyle(NORMAL);
+							pg.text(cfytype,20,100,300,300);
+							pg.text("This certificate proudly presented to",20,150,300,300);
+							pg.textStyle(BOLD);
+							pg.textSize(32);
+							pg.textAlign(CENTER);
+							pg.fill(cfyclrtext);
+							pg.text(myfname+" "+mylname,20,190,300,300);
+							pg.textStyle(BOLD);
+							pg.textSize(8);
+							pg.textAlign(CENTER);
+							pg.fill(cfyclrtext);
+							pg.text("from:- "+myschool,20,230,300,300);
+							pg.textAlign(CENTER);
+							pg.fill("rgb(0,0,0)");
+							pg.textSize(11);
+							pg.textStyle(NORMAL);
+							pg.text("Participated in "+cshopnameen+" Quiz Contest Round-1. This certificate is offered in the recognition of participation and outstanding achievement.",20,250,300,300);
+							pg.textSize(32);
+							pg.textStyle(BOLD);
+						 pg.fill(cfyclrtext);
+							pg.text(cfymedal+" Score"+" "+score+"%",20,300,300,300);
+							pg.textSize(11);
+							pg.fill(cfyclrtext);
+							pg.textStyle("bold");
+							pg.text("🕓Time taken: "+sectik+"/60 seconds",20,350,300,300);
+							pg.textAlign(CENTER);
+							pg.textStyle(BOLD);
+							pg.textSize(14);
+							pg.fill("purple");
+							pg.text(cshopnameen,20,370,300,300);
+							pg.textAlign(CENTER);
+							pg.textSize(6);
+							pg.textStyle(ITALIC);
+							pg.text("Quiz Contest Organiser",20,390,300,300);
+					  pg.text("•••congratulations🎉 "+myfname+" ~"+cshopnameen+"•••",20,400,300,300);
+					  pg.text("वेलकम फुटवेअर किल्लारी",20,420,300,300);
+					  pg.fill("#DDA745");
+					  pg.stroke("#DDA745");
+					  pg.strokeWeight(2);
+					  pg.fill("black");
+					  pg.textSize(6);
+					  pg.textAlign(CENTER);
+					  pg.textStyle(NORMAL);
+							pg.text("Date: "+todate,20,450,300,300);
+					  
+							pg.textStyle(BOLD);
+							pg.fill("navy");
+							pg.text("Contest Link :"+cshopquizlink,20,465,300,300);
+							
+							image(pg,0,0);
+				}
+				
+				function down(){
+				    alert("Be relax 1 minute Downloading....😊");
+								pg.saveCanvas(c,"certificate","png");		
+				}
+				
+				async function sharecanvas() {
+  const canvasElement = document.getElementById("canva");
+  const dataUrl = canvasElement.toDataURL();
+  const blob = await (await fetch(dataUrl)).blob();
+  const filesArray = [
+    new File(
+      [blob],
+      'certificate.png',
+      {
+        type: blob.type,
+        lastModified: new Date().getTime()
+      }
+    )
+  ];
+  const shareData = {
+    files: filesArray,
+    text: cshopnameen+"Inviting you for winter Quiz Contest organized by welcome footwear killari, karkhana ",
+    url: cshopquizlink
+  };
+  navigator.share(shareData);
+}
+
+
+function savedb(){
+   
+localStorage.setItem("prvscore",score);
+   localStorage.setItem("contsnm",qfname.value);
+   localStorage.setItem("quizdate",todaydate);
+
+localStorage.setItem("quiztime",sectik);   
+
+if(localStorage.stat){
+	      localStorage.stat+=1;
+	    }
+	    else{
+	     localStorage.stat=1;
+	    }   
+}
+
+	checkre();
+	function checkre()	{
+	    var stoppg = document.getElementById("stopthem");
+	    var getmessit = document.getElementById("messit");
+	    var getscore = localStorage.getItem("prvscore");
+	    var getfname = localStorage.getItem("contsnm");
+	    var gettodate = localStorage.getItem("quizdate");
+	    var getquiztime = localStorage.getItem("quiztime");
+	    
+	    if(localStorage.stat>=1){
+	        stoppg.style.display="block";
+	        getmessit.innerHTML=
+	        `<div><p>👋 Hi! <b>${getfname}</b></p>
+	        <p>Congratulations 🎉 You Scored <b>${getscore}%</b></p>
+	        <p>In ${getquiztime} seconds.</p>
+	        <p>On ${gettodate}</p>
+	        <p>😊 You already taken this Quizzo</p>
+	        <p>@ welcome footwear, killari 413516</p></div>`;
+	        
+	    }
+	}
+				
+	</script>		
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js"></script>
+</html>
